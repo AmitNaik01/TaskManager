@@ -40,22 +40,23 @@ class TaskManager extends Controller
         return redirect()->route('tasks.index')->with('success', 'Task Created Successfully');
     }
 
-    public function edit()
+    public function edit(Task $task)
     {
-        return view('tasks.edit',compact('task'));
+        
+        return view('tasks.edit', compact('task'));
     }
 
     public function update(Request $request,Task $task)
     {
         // Validate the incoming request data
-        $task->update([
+        $request->validate([
             'title' => 'required|max:255',
             'description' => 'nullable',
             'status' => 'required|in:pending,completed',
         ]);
 
         // Create a new task with the validated data
-        Task::create([
+        $task->update([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'status' => $request->input('status'),
@@ -63,5 +64,13 @@ class TaskManager extends Controller
 
         // Redirect to the tasks index with a success message
         return redirect()->route('tasks.index')->with('success', 'Task Updated Successfully');
+    }
+
+    public function destroy(Task $task)
+    {
+        $task->delete();
+        return redirect()->route('tasks.index')->with('success', 'Task Deleted Successfully');
+   
+        
     }
 }
