@@ -11,28 +11,26 @@ Steps
 
     Clone the repository:
 
-    sh
-
-git clone https://github.com/AmitNaik01/TaskManager.git
-cd TaskManager
+    git clone https://github.com/AmitNaik01/TaskManager.git
+    cd TaskManager
 
 Install dependencies:
 
-composer install
-npm install
+    composer install
+    npm install
 
 Copy .env.example to .env and set your environment variables:
 
-cp .env.example .env
-php artisan key:generate
+    cp .env.example .env
+    php artisan key:generate
 
 Set up your database and run migrations:
 
-php artisan migrate
+    php artisan migrate
 
 Run the development server:
 
-php artisan serve
+    php artisan serve
 
 Compile assets:
 
