@@ -54,6 +54,7 @@
                                 <i class="fa fa-trash"></i> Delete
                             </button>
                         </form>
+                        
                     </td>
                    
 

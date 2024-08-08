@@ -29,6 +29,7 @@
         </div>
         
         <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="{{ route('tasks.index') }}" class="btn btn-secondary ">Close</a>
     </form>
 </div>
 

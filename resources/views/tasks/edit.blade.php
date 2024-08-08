@@ -29,6 +29,7 @@
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Update Task</button>
+        <a href="{{ route('tasks.index') }}" class="btn btn-secondary ">Close</a>
     </form>
 </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

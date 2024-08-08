@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TaskManager;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +17,15 @@ use App\Http\Controllers\TaskManager;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/tasks', [TaskManager::class, 'index'])->name('tasks.index');
-Route::get('/tasks/create', [TaskManager::class, 'create'])->name('tasks.create');
-Route::post('/tasks', [TaskManager::class, 'store'])->name('tasks.store');
+Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
+Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
+Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
 
-Route::get('/tasks/{task}', [TaskManager::class, 'edit'])->name('tasks.edit');
-Route::put('/tasks/{task}', [TaskManager::class, 'update'])->name('tasks.update');
+Route::get('/tasks/{task}', [TaskController::class, 'edit'])->name('tasks.edit');
+Route::put('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
 
-Route::delete('/tasks/{task}', [TaskManager::class, 'destroy'])->name('tasks.destroy');
+Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
+Route::post('/tasks/{task}/complete', [TaskController::class, 'complete'])->name('tasks.complete');
+Route::get('/tasks/{close}', function () {
+    return view('tasks.index');
+});
